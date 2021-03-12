@@ -13,9 +13,7 @@ const ImportData = async () => {
       csv = csvData;
     });
 
-  const patientData = await dbo
-    .collection("patient")
-    .insertMany(csv);
+  const patientData = await dbo.collection("patient").insertMany(csv);
 
   return patientData.insertedCount;
 };

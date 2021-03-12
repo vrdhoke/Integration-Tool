@@ -6,7 +6,7 @@ const ViewPatientCollection = async () => {
   const patientData = await dbo.collection("patient").find({}).toArray();
 
   var len = patientData.length;
-//   console.log(patientData);
+  //   console.log(patientData);
   return patientData;
 };
 
