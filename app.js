@@ -30,6 +30,6 @@ findPatient.missingFName();
 //  })
 
 
-app.listen(3001, () => {
-  console.log("Server Started on Port 3001");
+app.listen(3000, () => {
+  console.log("Server Started on Port 3000");
 });
