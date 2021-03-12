@@ -7,7 +7,6 @@ const missingEmail = async () => {
   const missingEmail = await dbo.collection("patient").find(query).toArray();
 
   var len = missingEmail.length;
-//   console.log(missingEmail);
   var memberId = [];
   missingEmail.forEach(function (item) {
     memberId.push(item["Member ID"]);

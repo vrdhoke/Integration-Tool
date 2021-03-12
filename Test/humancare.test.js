@@ -43,7 +43,7 @@ describe("Unit Test cases for Human Care System Integration Tool", () => {
         delete item._id;
       });
 
-      //Comparing the CSV data from the 
+      //Comparing the CSV data from the
       await expect(data).toEqual(csv);
     });
   });
@@ -57,7 +57,6 @@ describe("Unit Test cases for Human Care System Integration Tool", () => {
           csv = csvData;
         });
       var count = 0;
-      //This counts the missing element from the CSV file
       csv.forEach(function (item) {
         if (item["First Name"] == "") {
           count += 1;
@@ -66,7 +65,6 @@ describe("Unit Test cases for Human Care System Integration Tool", () => {
       expect.assertions(1);
       const data = await findPatient.missingFName();
       var len = csv.length;
-      //We will compare the data received from our own implemented method with CSV data
       await expect(data.length).toBe(count);
     });
   });
@@ -82,7 +80,7 @@ describe("Unit Test cases for Human Care System Integration Tool", () => {
       var count = 0;
       var patientIds = [];
       csv.forEach(function (item) {
-        if (item.CONSENT == "Y" && item["Email Address"]=="") {
+        if (item.CONSENT == "Y" && item["Email Address"] == "") {
           patientIds.push(item["Member ID"]);
         }
       });
@@ -109,6 +107,7 @@ describe("Unit Test cases for Human Care System Integration Tool", () => {
       var len = csv.length;
       expect.assertions(1);
       await ScheduleEmail.ScheduleEmail().then((data) => {
+        //Each patient has 4 eamils scheduled for Day1,Day2,Day3,Day4
         expect(data.length).toBe(count * 4);
       });
     });
