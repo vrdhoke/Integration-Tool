@@ -7,8 +7,8 @@ const findPatient = require("../Modules/MissingFname");
 const missingEmail = require("../Modules/MissingEmails");
 const csvtojson = require("csvtojson");
 
-describe("Test cases for Human Care System Integration Tool", () => {
-  describe("Test import to collection", () => {
+describe("Unit Test cases for Human Care System Integration Tool", () => {
+  describe("Unit Test import to collection", () => {
     test("Import patient data", async () => {
       var csv = [];
       await csvtojson()
@@ -27,7 +27,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
     });
   });
 
-  describe("Comparing the CSV and collections data", () => {
+  describe("Unit test Comparing the CSV and collections data", () => {
     test("Compare patient data", async () => {
       var csv = [];
       await csvtojson()
@@ -48,7 +48,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
     });
   });
 
-  describe("Test missing first names", () => {
+  describe("Unit Test for missing first names", () => {
     test("Test missing first name of patient", async () => {
       var csv = [];
       await csvtojson()
@@ -71,7 +71,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
     });
   });
 
-  describe("Test missing email addresses with CONSENT Y", () => {
+  describe("Unit Test missing email addresses with CONSENT Y", () => {
     test("Test missing email addresses of patient", async () => {
       var csv = [];
       await csvtojson()
@@ -92,7 +92,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
     });
   });
 
-  describe("Schedule Emails", () => {
+  describe("Unit test for Schedule Emails", () => {
     test("Schedule Emails", async () => {
       var csv = [];
       await csvtojson()
@@ -114,7 +114,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
     });
   });
 
-  describe("Drop Patient data", () => {
+  describe("Drop Patient data every time to rerun the test cases", () => {
     it("Drop patient data", async () => {
       //   expect.assertions(1);
       return await DropCSVData.DropCSVCollection().then((data) => {
@@ -122,7 +122,7 @@ describe("Test cases for Human Care System Integration Tool", () => {
       });
     });
   });
-  describe("Drop Email data", () => {
+  describe("Drop Email data every time to rerun the test cases", () => {
     it("Drop Email data", async () => {
       //   expect.assertions(1);
       return await DropEmailData.DropEmailCollection().then((data) => {
